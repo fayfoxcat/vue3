@@ -1,18 +1,28 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <div>哈哈哈哈</div>
+  <h3>{{user.name}}</h3>
+  <button @click="update">更新</button>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component';
-import HelloWorld from './components/HelloWorld.vue';
-
-@Options({
-  components: {
-    HelloWorld,
+import { defineComponent, reactive } from "vue";
+export default defineComponent({
+  name: "App",
+  setup() {
+    const obj = {
+      name: "张三",
+    };
+    const user = reactive(obj)
+    
+    const update = ()=>{
+      user.name += '==='
+    }
+    return{
+      user,
+      update,
+    }
   },
-})
-export default class App extends Vue {}
+});
 </script>
 
 <style>

@@ -17,7 +17,7 @@ module.exports = {
     "vue/multi-word-component-names": [
       "error",
       {
-        ignores: ["Child"], //需要忽略的组件名
+        ignores: ["Child",'Son'], //需要忽略的组件名
       },
     ],
 

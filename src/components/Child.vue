@@ -1,23 +1,39 @@
 <template>
-  <button @click="emitxxx">戳</button>
+    <h3>子组件</h3>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "@vue/runtime-core";
+import { computed, defineComponent, reactive, watch } from "vue";
 export default defineComponent({
-  setup(props, context) {
-    // console.log(context.attrs.msg2);
+    name:'Child',
+    beforeCreate(){
+        console.log("2.x中的beforeCreate");
+    },
+    created(){
+        console.log("2.x中的created");
+    },
+    beforeMount(){
+        console.log("2.x中的beforeMount");
+    },
+    mounted(){
+        console.log("2.x中的mounted");
+    },
+    beforeUpdate(){
+        console.log("2.x中的beforeUpdate");
+    },
+    updated(){
+        console.log("2.x中的updated");
+    },
+    beforeUnmount() {
+        console.log("2.x中的beforeDestroy");
+    },
+    unmounted() {
+        console.log("2.x中的destroyed");
+    },
+    setup() {
+        return {
 
-    console.log(props);
-    console.log(context)
-    
-
-    const emitxxx = () => {
-      context.emit("xxx", "张三");
-    };
-    return {
-      emitxxx,
-    };
-  },
+        };
+    },
 });
 </script>

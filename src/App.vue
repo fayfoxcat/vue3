@@ -1,38 +1,29 @@
 <template>
-  <Child :msg="msg" msg2="真香" @xxx="xxx">
-  
-  </Child>
+    <div>{{ color }}</div>
+    <button @click="color = 'red'">红色</button>
+    <button @click="color = 'yellow'">黄色</button>
+    <button @click="color = 'green'">绿色</button>
+    <Son />
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive } from "vue";
-import Child from "@/components/Child.vue";
+import { defineComponent, provide, ref } from 'vue'
+import Son from '@/components/Son.vue'
+
 export default defineComponent({
-  name: "App",
-  components: {
-    Child,
-  },
-  setup() {
-    
-    const msg = 'what are you no sha lei'
-    const xxx = (name:any)=>{
-      console.log(name+"：干的漂亮！")
+    name: 'App',
+    component: {
+        Son
+    },
+    setup() {
+        const color = ref('red')
+        provide('color', color)
+        return {
+            color,
+        }
     }
-    return { 
-      msg,
-      xxx
-    };
-  },
-});
+})
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style scoped>
 </style>

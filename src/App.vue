@@ -1,35 +1,38 @@
 <template>
-  <div>{{ color }}</div>
-  <button @click="color = 'red'">红色</button>
-  <button @click="color = 'yellow'">黄色</button>
-  <button @click="color = 'green'">绿色</button>
-  <button @click="update('456')">app按钮</button>
-  <Son/>
+  <div>
+    <h2>标题</h2>
+    <Header/>
+    <List/>
+    <Footer/>
+  </div>
 </template>
-
 <script lang="ts">
-import {defineComponent, provide, ref} from 'vue'
-import Son from '@/components/Son.vue'
+import {defineComponent} from "@vue/runtime-core";
+import Header from "@/components/Header.vue"
+import List from "@/components/List.vue"
+import Footer from "@/components/Footer.vue"
 
 export default defineComponent({
   name: 'App',
   components: {
-    Son
-  },
-  setup() {
-    const color = ref('red')
-    const update = ((value: string) => {
-      console.log("abc"+value)
-    })
-    provide('color', color)
-    provide('update', update)
-    return {
-      color,
-      update
-    }
+    Header,
+    List,
+    Footer
   }
+
 })
 </script>
 
-<style scoped>
+<style>
+#app {
+  border: solid #48ceff 1px;
+  width: 30%;
+  height: 300px;
+  margin: 100px auto;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
 </style>

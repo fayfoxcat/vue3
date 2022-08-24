@@ -1,17 +1,14 @@
 <template>
   <div id="header">
-    <div class="demo-input-suffix">
-      <el-row>
-        <span class="ml-3 w-35 text-gray-600 inline-flex items-center">Using attributes</span>
+        <span>事项</span>
         <el-input
             v-model="input"
             maxlength="10"
-            placeholder="Please input"
+            placeholder="请输入新增清单"
             show-word-limit
             type="text"
+            style="width: 80%"
         />
-      </el-row>
-    </div>
   </div>
 </template>
 
@@ -22,7 +19,7 @@ import {ref} from 'vue'
 export default defineComponent({
   name: "Header",
   setup() {
-    const input = ref('123')
+    const input = ref('')
 
     return {
       input,
@@ -31,10 +28,15 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
+<style lang = "scss" scoped>
 #header {
   border: solid #48ceff 1px;
   margin: auto;
   width: 90%;
+  display:flex;
+  justify-content:space-between;
+  span{
+    margin: auto;
+  }
 }
 </style>

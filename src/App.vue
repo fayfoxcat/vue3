@@ -25,7 +25,7 @@ export default defineComponent({
 
 <style>
 #app {
-  border: solid #48ceff 1px;
+  border: solid #e3f895 1px;
   width: 30%;
   height: 300px;
   margin: 100px auto;
